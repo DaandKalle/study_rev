@@ -11,7 +11,7 @@ def set_futuristic_theme():
     <style>
         /* Main theme */
         .main {{
-            background-color: #ccc;
+            background-color: #0f0e17;
             color: #fffffe;
         }}
         
@@ -79,11 +79,6 @@ def set_futuristic_theme():
     </style>
     """, unsafe_allow_html=True)
 
-# ---- Lottie Animations ----
-def load_lottie(filepath):
-    with open(filepath, "r") as f:
-        return json.load(f)
-
 # ---- App Layout ----
 def main():
     set_futuristic_theme()
@@ -103,12 +98,12 @@ def main():
         with stylable_container(
             key="profile",
             css_styles="""
-                {
+                {{
                     background: rgba(30, 30, 60, 0.7);
                     border-radius: 16px;
                     padding: 15px;
                     margin: 10px 0;
-                }
+                }}
             """
         ):
             st.markdown("👤 **User Profile**")
@@ -132,18 +127,18 @@ def show_notes_page():
     with stylable_container(
         key="uploader",
         css_styles="""
-            {
+            {{
                 border: 2px dashed #4a4a8a;
                 border-radius: 16px;
                 padding: 30px;
                 text-align: center;
                 margin: 20px 0;
                 transition: all 0.3s ease;
-            }
-            :hover {
+            }}
+            :hover {{
                 border-color: #6246ea;
                 background: rgba(98, 70, 234, 0.1);
-            }
+            }}
         """
     ):
         st.markdown("""<div class='floating'>📎</div>""", unsafe_allow_html=True)
@@ -159,11 +154,11 @@ def show_notes_page():
     with stylable_container(
         key="editor",
         css_styles="""
-            {
+            {{
                 background: rgba(30, 30, 60, 0.7);
                 border-radius: 16px;
                 padding: 20px;
-            }
+            }}
         """
     ):
         notes = st.text_area(
@@ -189,12 +184,12 @@ def show_quiz_page():
     with stylable_container(
         key="quiz_type",
         css_styles="""
-            {
+            {{
                 background: rgba(30, 30, 60, 0.7);
                 border-radius: 16px;
                 padding: 20px;
                 margin-bottom: 20px;
-            }
+            }}
         """
     ):
         quiz_type = st.radio(
@@ -207,12 +202,12 @@ def show_quiz_page():
     with stylable_container(
         key="question_card",
         css_styles="""
-            {
+            {{
                 background: rgba(30, 30, 60, 0.7);
                 border-radius: 16px;
                 padding: 20px;
                 margin: 10px 0;
-            }
+            }}
         """
     ):
         st.markdown("### What is the primary purpose of photosynthesis?")
@@ -256,12 +251,12 @@ def show_dashboard():
         with stylable_container(
             key="stat1",
             css_styles="""
-                {
+                {{
                     background: linear-gradient(135deg, #6246ea 0%, #d16ba5 100%);
                     border-radius: 16px;
                     padding: 20px;
                     color: white;
-                }
+                }}
             """
         ):
             st.metric("🧠 Concepts Mastered", "24", "+3 this week")
@@ -270,12 +265,12 @@ def show_dashboard():
         with stylable_container(
             key="stat2",
             css_styles="""
-                {
+                {{
                     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
                     border-radius: 16px;
                     padding: 20px;
                     color: white;
-                }
+                }}
             """
         ):
             st.metric("⏱️ Avg Response Time", "2.4s", "-0.3s")
@@ -284,12 +279,12 @@ def show_dashboard():
         with stylable_container(
             key="stat3",
             css_styles="""
-                {
+                {{
                     background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
                     border-radius: 16px;
                     padding: 20px;
                     color: white;
-                }
+                }}
             """
         ):
             st.metric("📅 Upcoming Reviews", "5", "2 due tomorrow")
@@ -298,17 +293,18 @@ def show_dashboard():
     with stylable_container(
         key="progress",
         css_styles="""
-            {
+            {{
                 background: rgba(30, 30, 60, 0.7);
                 border-radius: 16px;
                 padding: 20px;
                 margin-top: 20px;
-            }
+            }}
         """
     ):
         st.markdown("### 🚀 Knowledge Growth")
-        # Placeholder for chart
-        st.image("https://via.placeholder.com/800x400/1a1a2e/ffffff?text=Progress+Analytics", use_column_width=True)
+        # Placeholder for chart with correct width parameter
+        st.image("https://via.placeholder.com/800x400/1a1a2e/ffffff?text=Progress+Analytics", 
+                use_container_width=True)  # Updated parameter here
 
 if __name__ == "__main__":
     main()
