@@ -1,7 +1,6 @@
 from huggingface_hub import InferenceClient
 
-#
-HF_API_KEY = "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"  
+
 
 client = InferenceClient(
     model="meta-llama/Meta-Llama-3-8B-Instruct",  # The official LLaMA 3 model
